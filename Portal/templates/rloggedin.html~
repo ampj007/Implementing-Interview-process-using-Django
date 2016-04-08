@@ -1,0 +1,17 @@
+{% extends "rhome.html" %}
+{% load static %}
+
+{% block content %}
+<fieldset>
+	<h2 class="link-blue">Welcome to Placement Portal System</h2>
+
+<script type="text/javascript" >
+$(function(){
+  setAutoComplete("bookSearchField", "bookResults", "/lookup/?query=");
+});
+</script>
+<label for="bookSearchField">Book: </label>
+<input type="text" id="bookSearchField" name="bookSearchField">
+
+	</fieldset>
+	{% endblock %}

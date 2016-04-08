@@ -1,0 +1,31 @@
+{% extends "home.html" %}
+{% load static %}
+{% block content %}
+<center><h3 style="background: linear-gradient(#9E4610, #582709);background-color: #292929; color:#FFF">Job Seeker Registration</h3>
+<script type="text/javascript">
+  $(function() {
+    jQuery.fn.extend({
+        disable: function(state) {
+            return this.each(function() {
+                this.disabled = state;
+            });
+        }
+    });
+    
+    $('input[type="submit"], input[type="button"], button').disable(true);
+});
+</script>
+<fieldset>
+<form action="/save/" method="post">{% csrf_token %}
+                      <input type="text" name="username" placeholder="Username" required="required" value={{ user.username }}><br/><br/>
+                      <input id="NewPassword" type="password" name="password" placeholder="New Password" required="required"><br/><br/>
+                      <input id="ConfirmPassword" type="password" placeholder="Retype Password" required="required" onChange="checkPasswordMatch();" > <div class="registrationFormAlert" id="divCheckPasswordMatch"> 
+</div><br/>
+                        <input type="text" id='name' name='name' placeholder="Full Name" required="required" value={{ user.first_name }}>
+                        <br/><br/>
+                      <input type="text" id='email' name='email' placeholder="E-Mail" required="required" value={{ user.email }}>
+                       <br/><br/>
+                          <button type="submit">Register</button>
+                  </form>
+</fieldset></center>
+{% endblock %}

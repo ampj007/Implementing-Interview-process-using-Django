@@ -1,0 +1,17 @@
+{% extends "jhome.html" %}
+{% load static %}
+{% block content %}
+            <table width="817">
+<tr>
+  <th width="264" ><strong>Company</strong></th>
+  <th width="268"><strong>Requirements</strong></th> 
+  <th width="269"><strong>No. of Vacancy</strong></th>
+ 
+</tr>
+{% for username in list %}
+<tr>
+<td><strong>{{username.username}}</strong></td><td><strong>{{username.requirements}}</strong></td><td><strong>{{username.vacancy}}</strong></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

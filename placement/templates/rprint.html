@@ -1,0 +1,38 @@
+{% extends "rhome.html" %}
+{% load static %}
+{% block content %}
+            <table width="817">
+<tr>
+  <th width="264" ><strong>Candidate ID</strong></th>
+  <th width="268"><strong>Name</strong></th> 
+  <th width="268"><strong>Qualification</strong></th> 
+  <th width="269"><strong>Email</strong></th>
+ 
+</tr>
+{% for id in list %}
+<tr>
+<td><strong>{{id.cid}}</strong></td><td><strong>{{id.name}}</strong></td><td><strong>{{id.course}}</strong></td><td><strong>{{id.email}}</strong></td>
+</tr>
+
+</table>
+
+<center>
+	
+<fieldset>
+<form action="/mark/" method="post">{% csrf_token %}
+<input type="hidden" name='cid' value={{id.cid}}>
+<select id='mark' name='mark' required="required" style="width: 235px;" >
+                      <option  value=''>Select Mark</option>
+                      <option value='1'>1</option>
+                      <option value='2'>2</option>
+                      <option value='3'>3</option>
+                      <option value='4'>4</option>
+                      <option value='5'>5</option>
+                      </select>
+<button type="submit">Submit</button>
+</form>
+{% endfor %}
+</fieldset>
+
+</center>
+{% endblock %}

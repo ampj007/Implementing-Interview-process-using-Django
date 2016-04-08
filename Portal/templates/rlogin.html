@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+{% load static %}
+{% block content %}
+{% if user and not user.is_anonymous %}
+ <script type="text/javascript">
+    
+    
+ 	window.location.replace(window.location.origin + "/goo");
+ </script>
+ {% else %}
+  <center><h3 style="background: linear-gradient(#9E4610, #582709);background-color: #292929; color:#FFF">Recruiter Login</h3>
+				<fieldset>
+
+					
+					<form action="/rauth/" method="post">{% csrf_token %}
+						<p>
+						<input type="text" name="username" id="username" value="" placeholder="Username" /><br /></p>		
+						
+						<p><input type="password" name="password" id="password" value="" placeholder="Password" /><br /></p>
+						
+						<p><input type="submit" name="submit" class="formbutton" value="Login" /></p>
+					</form>
+					
+					
+				</fieldset></center>
+				<center>Or</center>
+				<center><h3 style="background: linear-gradient(#9E4610, #582709);background-color: #292929; color:#FFF">Recruiter Signup</h3>
+				<fieldset>
+
+				  <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"><img src="{% static "assets/google.png" %}" width="30%" /></a>
+					
+				</fieldset></center>{% endif %}
+
+
+{% endblock %}

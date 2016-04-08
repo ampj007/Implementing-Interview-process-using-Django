@@ -1,0 +1,20 @@
+{% extends "rhome.html" %}
+{% load static %}
+{% block content %}
+            <table width="817">
+<tr>
+  <th width="264" ><strong>Candidate ID</strong></th>
+  <th width="268"><strong>Name</strong></th> 
+  <th width="268"><strong>Email</strong></th> 
+  <th width="269"><strong>Mark</strong></th>
+  <th width="269"><strong>Rank</strong></th>
+ 
+</tr>
+{% for id in details %}
+<tr>
+<td><strong>{{id.cid}}</strong></td><td><strong>{{id.name}}</strong></td><td><strong>{{id.email}}</strong></td><td><strong>{{id.mark}}</strong></td><td><strong>{{id.rank}}</strong></td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

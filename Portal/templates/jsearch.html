@@ -1,0 +1,35 @@
+{% extends "jhome.html" %}
+{% load static %}
+{% block content %}
+  <center><h3 style="background: linear-gradient(#9E4610, #582709);background-color: #292929; color:#FFF">Job Seeker Search</h3>
+				<fieldset>
+
+					
+					<form action="/jcheck/" method="post">{% csrf_token %}
+						<p>
+						<select id='expertise' name='expertise' required="required" >
+						<option  value=''>Domain of Expertise</option>
+						<option value='Java'>Java</option>
+						<option value='.Net'>.Net</option>
+                          <option value='MySql'>MySql</option>
+                          </select>
+                          
+                          
+                          
+						<select id='qualification' name='qualification' required="required" >
+						<option  value=''>Qualification</option>
+						<option value='B.E'>B.E</option>
+						<option value='M.E'>M.E</option>
+                          <option value='M.C.A'>M.C.A</option>
+                          </select>
+                          
+                          
+                         <input type="text" name="experience" required="required" placeholder="Experience" />
+						</p>
+						<p><input type="submit" name="submit" class="formbutton" value="Search" /></p>
+					</form>
+					
+					
+				</fieldset></center></div>
+
+{% endblock %}

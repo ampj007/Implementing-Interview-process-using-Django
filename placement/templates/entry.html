@@ -1,0 +1,20 @@
+{% extends "rhome.html" %}
+{% load static %}
+{% block content %}
+  <center><h3 style="background: linear-gradient(#9E4610, #582709);background-color: #292929; color:#FFF">Recruiter Search</h3>
+				<fieldset>
+
+					
+					<form action="/rcheck/" method="post">{% csrf_token %}
+				
+                        
+                          
+                         <input type="text" name="cid" required="required" placeholder="Candidate ID" />
+						</p>
+						<p><input type="submit" name="submit" class="formbutton" value="Search" /></p>
+					</form>
+					
+					
+				</fieldset></center></div>
+
+{% endblock %}

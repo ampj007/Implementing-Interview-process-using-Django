@@ -1,0 +1,55 @@
+{% extends "home.html" %}
+{% load static %}
+{% block content %}
+<center><h3 style="background: linear-gradient(#9E4610, #582709);background-color: #292929; color:#FFF">Job Seeker Registration</h3>
+<script type="text/javascript">
+  $(function() {
+    jQuery.fn.extend({
+        disable: function(state) {
+            return this.each(function() {
+                this.disabled = state;
+            });
+        }
+    });
+    
+    $('input[type="submit"], input[type="button"], button').disable(true);
+});
+</script>
+<fieldset>
+<form action="/register/" method="post">{% csrf_token %}
+                      <input type="text" name="username" placeholder="Username" required="required" value={{ user.username }}><br/><br/>
+                      <input id="NewPassword" type="password" name="password" placeholder="New Password" required="required"><br/><br/>
+                      <input id="ConfirmPassword" type="password" placeholder="Retype Password" required="required" onChange="checkPasswordMatch();" > <div class="registrationFormAlert" id="divCheckPasswordMatch"> 
+</div><br/>
+                        <input type="text" id='name' name='name' placeholder="Full Name" required="required" value={{ user.first_name }}>
+                       <br/><br/>
+                      <input type="text" id='email' name='email' placeholder="E-Mail" required="required" value={{ user.email }}>
+                       <br/><br/>
+                      
+                         <input type="text" id='dob' name='dob' placeholder="Date of Birth xx-xx-xxxx" required="required">
+                      <br/><br/>
+                      <select id='gender' name='gender' required="required" style="width: 235px;" >
+                      <option  value=''>Select Gender</option>
+                      <option value='Male'>Male</option>
+                      <option value='Female'>Female</option>
+                      </select>
+                      <br/><br/>
+                      <input type="text" id='mob' name='mobile'  placeholder="Mobile" required="required">
+                      <br/><br/>
+                      
+                        
+                
+                      <select id='grad' name='grad' required="required" style="width: 235px;">
+                      <option value=''>Select Graduation</option>
+                      <option value='UG'>Under Graduation</option>
+                      <option value='PG'>Post Graduation</option>
+                      </select>
+                        <br/><br/>
+                        <input type="text" id='course' name='course' placeholder="Course" required="required"><br/><br/>
+                      <input type="text" id='college' name='college' placeholder="College/University Name" required="required"><br/><br/>
+                        <input type="text" id='city' name='city' placeholder="City" required="required"><br/><br/>
+                                            <input type="text" id='zip' name='zip' placeholder="Zip" required="required"><br/><br/>
+                          <button type="submit">Register</button>
+                  </form>
+</fieldset></center></div>
+{% endblock %}
