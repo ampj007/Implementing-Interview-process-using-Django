@@ -1,0 +1,8 @@
+{
+  "name": "Interview Process",
+  "description": "It is an implementation of single sign on with interview process.",
+  "image": "heroku/python",
+  "repository": "https://github.com/ampj007/Implementing-Interview-process-using-Django",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ]
+}

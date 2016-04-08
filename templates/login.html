@@ -1,0 +1,36 @@
+{% extends "home.html" %}
+{% load static %}
+{% block content %}
+ {% if user and not user.is_anonymous %}
+ <script type="text/javascript">
+    
+    
+ 	window.location.replace(window.location.origin + "/reg_goo");
+ </script>
+ {% else %}
+  <center><h3 style="background: linear-gradient(#10469E, #092758);background-color: #292929; color:#FFF">Job Seeker Login</h3>
+				<fieldset>
+
+					
+					<form action="/jauth/" method="post">{% csrf_token %}
+						<p>
+						<input type="text" name="username" id="username" value="" placeholder="Username" /><br /></p>		
+						
+						<p><input type="password" name="password" id="password" value="" placeholder="Password" /><br /></p>
+						
+						<p><input type="submit" name="submit" class="formbutton" value="Login" /></p>
+					</form>
+					
+					
+				</fieldset></center>
+<center>Or</center>
+				 <center><h3 style="background: linear-gradient(#10469E, #092758);background-color: #292929; color:#FFF">Job Seeker Signup</h3>
+				<fieldset>
+
+					<a href="/reg"><input type="button" value="Register"></a>
+					
+					<center>Or</center>
+				  <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"><img src="{% static "assets/google.png" %}" width="30%" /></a>
+					
+				</fieldset></center>{% endif %}
+{% endblock %}

@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>PLACEMENT PORTAL</title>
+
+	<link rel="stylesheet" href="{% static "assets/demo.css" %}">
+	<link rel="stylesheet" href="{% static "assets/sidebar-left.css" %}">
+	<link rel="stylesheet" href="{% static "assets/font.css" %}">
+	<link href="{% static "assets/css.css" %}" rel='stylesheet' type='text/css'>
+<script type="text/javascript">
+	function checkPasswordMatch() {
+    var password = $("#NewPassword").val();
+    var confirmPassword = $("#ConfirmPassword").val();
+
+    if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("Passwords do not match!");
+    else
+        $("#divCheckPasswordMatch").html("Passwords match.");
+}
+
+$(document).ready(function () {
+   $("#ConfirmPassword").keyup(checkPasswordMatch);
+});
+</script>
+</head>
+
+<body>
+
+	<aside class="sidebar-left">
+
+		
+
+		<div class="sidebar-links">
+        <br/><br/><br/><br/>
+			<a class="link-blue" href="/rec"><i class="fa">Recruiter</i></a>
+			<a class="link-red" href="/jseek"><i class="fa">Job Seeker</i></a>
+			<a class="link-yellow" href="/admin"><i class="fa">Database Admin</i></a>
+		
+		</div>
+
+	</aside>
+
+	<div class="main-content">
+<font color="#00FF00"  style="font-size:36px"><marquee bgcolor="#000000">PLACEMENT PORTAL </marquee></font>
+		<div class="menu">
+{% block content %}
+{% endblock %}
+			
+		</div>
+
+	</div>
+
+	<script src="{% static "assets/jq.js" %}"></script>
+	<script>
+
+		$(function () {
+
+			var links = $('.sidebar-links > a');
+
+			links.on('click', function () {
+
+				links.removeClass('selected');
+				$(this).addClass('selected');
+
+			})
+		});
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+from django.db import models
+
+# Create your models here.
+class Candidate(models.Model):
+    username = models.CharField(max_length = 100)
+    password = models.CharField(max_length = 100)
+    qualification = models.CharField(max_length = 10)
+    expertise = models.CharField(max_length = 100)
+    percentage = models.IntegerField(max_length = 5)
+    experience = models.IntegerField(max_length = 2)
+	
+	
+    def __unicode__(self):
+        return self.username
+
+class Recruiter(models.Model):
+    username = models.CharField(max_length = 100)
+    password = models.CharField(max_length = 100)
+    requirements = models.CharField(max_length = 10)
+    vacancy = models.IntegerField(max_length = 5)
+    m_experience = models.IntegerField(max_length = 2)
+	
+	
+    def __unicode__(self):
+        return self.username
