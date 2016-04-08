@@ -30,7 +30,7 @@
 					<a href="/reg"><input type="button" value="Register"></a>
 					
 					<center>Or</center>
-				  <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"><img src="{% static "assets/google.png" %}" width="30%" /></a>
+				  <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"><img src="{% static "google.png" %}" width="30%" /></a>
 					
 				</fieldset></center>{% endif %}
 {% endblock %}
